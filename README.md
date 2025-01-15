@@ -33,6 +33,10 @@ To meet these requirements, the solution is broken down into the following compo
 - **Power BI**: For data visualization and reporting.
 - **Azure Key Vault**: For securely managing credentials and secrets.
 
+
+![Architecture](https://raw.githubusercontent.com/KacperFu/Azure-DE-Project/refs/heads/main/DE%20Pipeline.png)
+
+
 ## Setup Instructions
 
 ### Step 1: Azure Environment Setup
