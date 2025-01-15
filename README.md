@@ -58,6 +58,8 @@ To meet these requirements, the solution is broken down into the following compo
 2. **Transform Data**: Use Databricks notebooks to clean and aggregate the data, moving it from `bronze`.
 3. **Create SCD Type 2**: Maintain historical data when ingesting incremental data
 
+![Databrick Flow](https://raw.githubusercontent.com/KacperFu/Azure-DE-Project/refs/heads/main/PySpark%20Cluster.png)
+
 ### Step 4: Data Loading and Reporting
 
 1. **Load Data into Power BI**: Connect Power BI to Synapse and create visualizations based on business requirements.
