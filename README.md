@@ -62,7 +62,7 @@ To meet these requirements, the solution is broken down into the following compo
 
 ### Step 4: Data Loading and Reporting
 
-1. **Load Data into Power BI**: Connect Power BI to Synapse and create visualizations based on business requirements.
+1. **Load Data into Power BI**: Connect to Power BI and create visualizations based on business requirements.
 
 ### Step 5: Automation and Monitoring
 
