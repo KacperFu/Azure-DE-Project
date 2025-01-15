@@ -11,7 +11,7 @@ This project addresses a critical business need by building a comprehensive data
 To meet these requirements, the solution is broken down into the following components:
 
 1. **Data Ingestion**: 
-    - Extract customer and sales data from an CSV file.
+    - Extract data from an CSV file (Big Table).
 	- Load data to Azure SQL Server and move it to Azure Data Lake Storage (ADLS) using Azure Data Factory (ADF)
 
 2. **Data Transformation**:
