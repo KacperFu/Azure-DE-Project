@@ -8,13 +8,9 @@ This project demonstrates a comprehensive data pipeline solution utilizing vario
 - [Architecture](#architecture)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
-- [Setup and Installation](#setup-and-installation)
-- [Folder Structure](#folder-structure)
 - [Azure Services Used](#azure-services-used)
 - [Implementation Details](#implementation-details)
-- [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
