@@ -52,7 +52,7 @@ To meet these requirements, the solution is broken down into the following compo
 
 1. **Mount Data Lake in Databricks**: Configure Databricks to access ADLS.
 2. **Transform Data**: Use Databricks notebooks to clean and aggregate the data, moving it from `bronze`.
-3. **Create SCD type 2 logic to maintain historical data when ingesting incremental data**
+3. **Create SCD Type 2**: Maintain historical data when ingesting incremental data
 
 ### Step 4: Data Loading and Reporting
 
