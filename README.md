@@ -28,14 +28,13 @@ The data pipeline consists of the following key components:
 
 2. **Data Transformation:** Azure Databricks is used for data cleaning and transformation, implementing Slowly Changing Dimension (SCD) Type 2 to create dimensions and fact tables. The data is organized into Bronze, Silver, and Gold layers, representing raw, cleansed, and aggregated data, respectively.
 
-3. **Data Loading and Reporting:** The transformed data is loaded into Azure Synapse Analytics, enabling advanced analytics and reporting. A Power BI dashboard is then used to visualize the insights derived from the data.
+3. **Data Loading and Reporting:** The transformed data is loaded into Power BI. A dashboard is then used to visualize the insights derived from the data.
 
 ## Features
 
 - **End-to-End Data Pipeline:** From data ingestion to visualization.
 - **Layered Data Architecture:** Bronze (raw), Silver (cleansed), and Gold (aggregated) layers.
 - **Data Transformation:** Implementation of SCD Type 2 for dimension tables.
-- **Advanced Analytics:** Utilization of Azure Synapse Analytics for data analysis.
 - **Interactive Reporting:** Power BI dashboard for data visualization.
 
 ## Prerequisites
@@ -43,30 +42,9 @@ The data pipeline consists of the following key components:
 Before running this project, ensure you have:
 
 - An active Azure subscription.
-- Access to Azure services: Azure Data Factory, Azure Data Lake Storage Gen2, Azure Databricks, Azure Synapse Analytics, and Power BI.
+- Access to Azure services: Azure Data Factory, Azure Data Lake Storage Gen2, Azure Databricks and Power BI.
 - Basic knowledge of SQL and Python.
 
-
-## Folder Structure
-
-```
-Azure-DE-Project/
-│
-├── notebooks/
-│   ├── Bronze_to_Silver.ipynb       # Databricks notebook for Bronze to Silver transformations
-│   ├── Silver_to_Gold.ipynb         # Databricks notebook for Silver to Gold transformations
-│   ├── StorageMount.ipynb           # Databricks notebook for mounting Azure Data Lake
-│
-├── sql_scripts/
-│   ├── Create_Serverless_View.sql   # SQL script for creating serverless views in Synapse
-│   ├── Additional_Script_1.sql      # Additional SQL script
-│   ├── Additional_Script_2.sql      # Additional SQL script
-│
-├── resources/
-│   ├── architecture_diagram.png     # Project architecture diagram
-│
-└── README.md                        # Project documentation
-```
 
 ## Azure Services Used
 
@@ -100,7 +78,6 @@ Azure-DE-Project/
 
 ### Data Loading and Reporting
 
-- Transformed data is loaded into Azure Synapse Analytics.
 - A Power BI dashboard is created to visualize the insights derived from the data.
 
 # Contributing
