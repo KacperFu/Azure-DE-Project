@@ -1,30 +1,74 @@
 # Azure End-to-End Data Engineering Project
-This project is a data engineering pipeline solution to a made-up business problem, created to aid in my learning and understanding of data pipelining.
+
+This project demonstrates a comprehensive data pipeline solution utilizing various Azure services for data ingestion, transformation, and reporting, culminating in a Power BI dashboard that provides actionable business insights.
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Architecture](#architecture)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Setup and Installation](#setup-and-installation)
+- [Folder Structure](#folder-structure)
+- [Azure Services Used](#azure-services-used)
+- [Implementation Details](#implementation-details)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Project Overview
 
-This project addresses a critical business need by building a comprehensive data pipeline on Azure. The goal is to extract data, transform it in the cloud, and generate actionable insights through a Power BI dashboard.
+This project showcases an end-to-end data pipeline implemented on Microsoft Azure. It involves extracting data from a CSV file, processing it through various Azure services, and visualizing the results in Power BI.
+
+## Architecture
+
+The data pipeline consists of the following key components:
+
+1. **Data Ingestion:** Data is extracted from a CSV file and loaded into Azure SQL Server, then moved to Azure Data Lake Storage (ADLS) using Azure Data Factory (ADF).
+
+2. **Data Transformation:** Azure Databricks is used for data cleaning and transformation, implementing Slowly Changing Dimension (SCD) Type 2 to create dimensions and fact tables. The data is organized into Bronze, Silver, and Gold layers, representing raw, cleansed, and aggregated data, respectively.
+
+3. **Data Loading and Reporting:** The transformed data is loaded into Azure Synapse Analytics, enabling advanced analytics and reporting. A Power BI dashboard is then used to visualize the insights derived from the data.
+
+## Features
+
+- **End-to-End Data Pipeline:** From data ingestion to visualization.
+- **Layered Data Architecture:** Bronze (raw), Silver (cleansed), and Gold (aggregated) layers.
+- **Data Transformation:** Implementation of SCD Type 2 for dimension tables.
+- **Advanced Analytics:** Utilization of Azure Synapse Analytics for data analysis.
+- **Interactive Reporting:** Power BI dashboard for data visualization.
+
+## Prerequisites
+
+Before running this project, ensure you have:
+
+- An active Azure subscription.
+- Access to Azure services: Azure Data Factory, Azure Data Lake Storage Gen2, Azure Databricks, Azure Synapse Analytics, and Power BI.
+- Basic knowledge of SQL and Python.
 
 
-## Solution Overview
+## Folder Structure
 
-To meet these requirements, the solution is broken down into the following components:
+```
+Azure-DE-Project/
+│
+├── notebooks/
+│   ├── Bronze_to_Silver.ipynb       # Databricks notebook for Bronze to Silver transformations
+│   ├── Silver_to_Gold.ipynb         # Databricks notebook for Silver to Gold transformations
+│   ├── StorageMount.ipynb           # Databricks notebook for mounting Azure Data Lake
+│
+├── sql_scripts/
+│   ├── Create_Serverless_View.sql   # SQL script for creating serverless views in Synapse
+│   ├── Additional_Script_1.sql      # Additional SQL script
+│   ├── Additional_Script_2.sql      # Additional SQL script
+│
+├── resources/
+│   ├── architecture_diagram.png     # Project architecture diagram
+│
+└── README.md                        # Project documentation
+```
 
-1. **Data Ingestion**: 
-    - Extract data from an CSV file (Big Table).
-	- Load data to Azure SQL Server and move it to Azure Data Lake Storage (ADLS) using Azure Data Factory (ADF)
-
-2. **Data Transformation**:
-    - Use Azure Databricks to clean and transform the data. Implement SCD Type 2 to create dimensions and fact table.
-    - Organize the data into Bronze, Silver, and Gold layers for raw, cleansed, and aggregated data respectively.
-
-3. **Data Loading and Reporting**:
-    - Load the transformed data into Power BI to visualize the data.
-
-4. **Automation**:
-    - Schedule the pipeline to run daily, ensuring that the data and reports are always up-to-date.
-
-## Technology Stack
+## Azure Services Used
 
 - **Azure Data Factory (ADF)**: For orchestrating data movement and transformation.
 - **Azure Data Lake Storage (ADLS)**: For storing raw and processed data.
@@ -33,46 +77,35 @@ To meet these requirements, the solution is broken down into the following compo
 - **Power BI**: For data visualization and reporting.
 - **Azure Key Vault**: For securely managing credentials and secrets.
 
-
 ![Architecture](https://raw.githubusercontent.com/KacperFu/Azure-DE-Project/refs/heads/main/DE%20Pipeline.png)
 
 
-## Setup Instructions
 
-### Step 1: Azure Environment Setup
+## Implementation Details
 
-1. **Create Resource Group**: Set up a new resource group in Azure.
-2. **Provision Services**:
-   - Create an Azure Data Factory instance.
-   - Set up Azure Data Lake Storage with `bronze`, `silver`, and `gold` containers.
-   - Set up an Azure Databricks workspace and Azure SQL Server workspace.
-   - Configure Azure Key Vault for secret management.
+### Data Ingestion
 
-### Step 2: Data Ingestion
+- Data is extracted from a CSV file and loaded into Azure SQL Server.
+- Azure Data Factory moves the data from Azure SQL Server to Azure Data Lake Storage (ADLS).
 
-1. **Ingest Data with ADF**: Create pipelines in ADF to copy data from GitHub to the SQL Server and move it to `bronze` layer in ADLS.
+### Data Transformation
 
-### Step 3: Data Transformation
+- **Bronze to Silver:** Raw data is cleaned and enriched using Azure Databricks.
+- **Silver to Gold:** Analytical datasets are created, implementing SCD Type 2 for dimension tables.
 
-1. **Mount Data Lake in Databricks**: Configure Databricks to access ADLS.
-2. **Transform Data**: Use Databricks notebooks to clean and aggregate the data, moving it from `bronze`.
-3. **Create SCD Type 2**: Maintain historical data when ingesting incremental data
 
 ![Databrick Flow](https://raw.githubusercontent.com/KacperFu/Azure-DE-Project/refs/heads/main/PySpark%20Cluster.png)
 
-### Step 4: Data Loading and Reporting
 
-1. **Load Data into Power BI**: Connect to Power BI and create visualizations based on business requirements.
 
-### Step 5: Automation and Monitoring
+### Data Loading and Reporting
 
-1. **Schedule Pipelines**: Use ADF to schedule the data pipelines to run daily.
-2. **Monitor Pipeline Runs**: Use the monitoring tools in ADF and Synapse to ensure successful pipeline execution.
+- Transformed data is loaded into Azure Synapse Analytics.
+- A Power BI dashboard is created to visualize the insights derived from the data.
 
-### Step 6: Security and Governance
+# Contributing
 
-1. **Manage Access**: Set up role-based access control (RBAC) using Azure Entra ID (formerly Active Directory).
+Feel free to fork this repository and make changes. Contributions are welcome!
 
-### Step 7: End-to-End Testing
 
-1. **Trigger and Test Pipelines**: Insert new records into the SQL database and verify that the entire pipeline runs successfully, updating the Power BI dashboard.
+
